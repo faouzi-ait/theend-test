@@ -10,22 +10,31 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 65%;
   min-height: 1rem;
   margin: 2rem auto;
 }
 
 .dropdown {
   display: grid;
-  grid-template-columns: repeat(3, 25%);
+  grid-template-columns: repeat(3, 30%);
   /* grid-template-rows: 25px; */
   margin-top: 2rem;
   font-size: 1.4rem;
   padding: 0;
 }
 
+.dropdown-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 0 4rem;
+}
+
 .dropdown a {
   height: 25px;
+  color: #000 !important;
+  margin: 0;
+  text-decoration: none;
 }
 
 .title-menu {

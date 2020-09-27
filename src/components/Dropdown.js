@@ -3,21 +3,11 @@ import ImageDisplay from "./ImagesDisplay";
 
 function Dropdown({ parentNav, menu }) {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "60% 40%",
-        padding: "0 2rem",
-      }}
-    >
+    <div className="dropdown-grid">
       {parentNav && (
         <div className="dropdown">
           {menu.children_data.map((name) => (
-            <a
-              href={name.url_path}
-              key={name.name}
-              style={{ color: "gray", margin: "0", textDecoration: "none" }}
-            >
+            <a href={name.url_path} key={name.name}>
               {name.name.substring(0, 15)}
             </a>
           ))}
