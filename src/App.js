@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Menu from "./components/Menu";
+import Dropdown from "./components/Dropdown";
+import { obj } from "./data/testData";
+import "./App.css";
 
 function App() {
+  const [menu, setMenu] = useState();
+  const [parentNav, setIsOpen] = useState(false);
+
+  console.log(obj.navCatagories);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container" onMouseLeave={() => setIsOpen(false)}>
+      <Menu obj={obj} setMenu={setMenu} setIsOpen={setIsOpen} />
+      {parentNav && <Dropdown parentNav={parentNav} menu={menu} />}
     </div>
   );
 }
