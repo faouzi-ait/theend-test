@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ImageDisplay from "./ImagesDisplay";
 
-function Dropdown({ parentNav, menu }) {
+function Dropdown({ menu }) {
   const columns = {
     one: menu.children_data.filter(
       (item) =>
@@ -23,72 +23,32 @@ function Dropdown({ parentNav, menu }) {
     ),
   };
 
-  console.log(columns);
+  const DisplayColumn = ({ column }) => {
+    return (
+      <div className="dropdown">
+        {column.map((item) => (
+          <Fragment key={item.id}>
+            {item.is_column_header && (
+              <a href={item.url_path} key={item.id} className="title">
+                {item.custom_category_name}
+              </a>
+            )}
+            {!item.is_column_header && (
+              <a href={item.url_path} key={item.id}>
+                {item.name}
+              </a>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className="dropdown-grid">
-      {parentNav && (
-        <>
-          <div className="dropdown">
-            {columns.one.map((item) => (
-              <Fragment key={item.id}>
-                {item.is_column_header && (
-                  <a href={item.url_path} key={item.id} className="title">
-                    {item.custom_category_name}
-                  </a>
-                )}
-                {!item.is_column_header && (
-                  <a href={item.url_path} key={item.id}>
-                    {item.name.substring(0, 17)}
-                  </a>
-                )}
-              </Fragment>
-            ))}
-          </div>
-        </>
-      )}
-
-      {parentNav && (
-        <>
-          <div className="dropdown">
-            {columns.two.map((item) => (
-              <Fragment key={item.id}>
-                {item.is_column_header && (
-                  <a href={item.url_path} key={item.id} className="title">
-                    {item.custom_category_name}
-                  </a>
-                )}
-                {!item.is_column_header && (
-                  <a href={item.url_path} key={item.id}>
-                    {item.name.substring(0, 17)}
-                  </a>
-                )}
-              </Fragment>
-            ))}
-          </div>
-        </>
-      )}
-
-      {parentNav && (
-        <>
-          <div className="dropdown">
-            {columns.three.map((item) => (
-              <Fragment key={item.id}>
-                {item.is_column_header && (
-                  <a href={item.url_path} key={item.id} className="title">
-                    {item.custom_category_name}
-                  </a>
-                )}
-                {!item.is_column_header && (
-                  <a href={item.url_path} key={item.id}>
-                    {item.name.substring(0, 17)}
-                  </a>
-                )}
-              </Fragment>
-            ))}
-          </div>
-        </>
-      )}
+      {columns.one && <DisplayColumn column={columns.one} />}
+      {columns.two && <DisplayColumn column={columns.two} />}
+      {columns.three && <DisplayColumn column={columns.three} />}
 
       <div className="image-container">
         <div className="image-display">

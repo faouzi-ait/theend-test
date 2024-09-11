@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="container" onMouseLeave={() => setIsOpen(false)}>
       <Menu obj={obj} setMenu={setMenu} setIsOpen={setIsOpen} />
-      {parentNav && <Dropdown parentNav={parentNav} menu={menu} />}
+      {parentNav && <Dropdown menu={menu} />}
     </div>
   );
 }
