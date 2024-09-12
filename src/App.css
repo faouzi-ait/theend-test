@@ -9,8 +9,20 @@ body {
   font-size: 1.5rem;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: rgb(85, 85, 85);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgb(235, 235, 235);
+}
+
 .container {
-  width: 85%;
+  width: 65%;
   min-height: 1rem;
   margin: 2rem auto;
 }
@@ -49,12 +61,17 @@ a.title {
 
 .title-menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: gray;
   cursor: pointer;
+}
+
+.nav-title {
+  color: #000;
+  font-weight: bold;
 }
 
 .image-container {

@@ -4,7 +4,7 @@ function ImagesDisplay({ image, name }) {
   return (
     <div>
       <img src={image} alt="img" />
-      <p>{name}</p>
+      <p style={{ marginTop: 0 }}>{name}</p>
     </div>
   );
 }

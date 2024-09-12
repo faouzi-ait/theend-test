@@ -6,13 +6,25 @@ import "./App.css";
 
 function App() {
   const [menu, setMenu] = useState();
-  const [parentNav, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentMenu, setCurrentMenu] = useState("");
 
   return (
-    <div className="container" onMouseLeave={() => setIsOpen(false)}>
-      <Menu obj={obj} setMenu={setMenu} setIsOpen={setIsOpen} />
-      {parentNav && <Dropdown menu={menu} />}
-    </div>
+    <>
+      <div className="header">
+        free uk deliveries on all orders over £100 | free uk returns
+      </div>
+      <div className="container" onMouseLeave={() => setIsOpen(false)}>
+        <Menu
+          obj={obj}
+          setMenu={setMenu}
+          setIsOpen={setIsOpen}
+          currentMenu={currentMenu}
+          setCurrentMenu={setCurrentMenu}
+        />
+        {isOpen && <Dropdown menu={menu} />}
+      </div>
+    </>
   );
 }
 
